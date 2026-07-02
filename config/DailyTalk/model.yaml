@@ -1,0 +1,108 @@
+block_type: "transformer"
+external_speaker_dim: 512
+duration_modeling:
+  learn_alignment: True
+  aligner_temperature: 0.0005
+history_encoder:
+  type: "Guo"
+  fine_type: "Seven"
+  text_emb_size: 512
+  text_emb_tod_size: 768
+  waviemocap_emb_size: 768
+  max_history_len: 10
+  duration_max: 898
+  modal_hidden: 100
+  modal_layer: 2
+  modal_head: 2
+  modal_kernel_size: 17
+  modal_dropout: 0.2
+  cma_hidden: 100
+  cma_layer: 2
+  cma_head: 4
+  cma_filter_size: 256
+  cma_kernel_size: [9, 1]
+  cma_dropout: 0.2
+  context_layer: 2
+  context_hidden: 128
+  audio_context_hidden1: 512
+  audio_context_hidden2: 256
+  audio_context_hidden3: 128
+  context_dropout: 0.2
+  level_type: "word"
+  tod_bert_size: 768
+fine_audio_encoder:
+  fine_audioe_input_size: 768 
+  fine_audioe_filter_size: 768 
+  conv_output_size: 256 
+  fine_audio_kernel: 17 
+  dropout: 0.5
+transformer:
+  encoder_layer: 4
+  encoder_head: 2
+  encoder_hidden: 256
+  decoder_layer: 6
+  decoder_head: 2
+  decoder_hidden: 256
+  conv_filter_size: 1024
+  conv_kernel_size: [9, 1]
+  encoder_dropout: 0.2
+  decoder_dropout: 0.2
+conformer:
+  encoder_layer: 4
+  encoder_head: 8
+  encoder_hidden: 256
+  decoder_layer: 6
+  decoder_head: 8
+  decoder_hidden: 256
+  feed_forward_expansion_factor: 4
+  conv_expansion_factor: 2
+  conv_kernel_size: 31
+  half_step_residual: True
+  encoder_dropout: 0.1
+  decoder_dropout: 0.1
+variance_predictor:
+  filter_size: 256
+  kernel_size: 3
+  dropout: 0.5
+  cond_dur_layer: 2
+  cond_dur_head: 2
+  cond_dur_hidden: 128
+  conv_filter_size: 512
+  conv_kernel_size: [9, 1]
+  cond_dur_dropout: 0.2
+variance_embedding:
+  kernel_size: 9
+  pitch_quantization: "linear"
+  energy_quantization: "linear"
+  n_bins: 256
+multi_speaker: True
+multi_emotion: True
+max_seq_len: 1500
+vocoder:
+  models: "HiFi-GAN"
+  speaker: "universal"
+emphasis_exist: True
+emphasis_predictor:
+  ckpt_path: "xxx" 
+  max_len: 72 
+  xlnet_dim: 25600 
+  hidden_dim1: 1024
+  hidden_dim2: 512
+  hidden_dim3: 256
+  hidden_dim4: 128
+  hidden_dim5: 64
+  hidden_dim7: 1
+  drop_prob: 0.3
+  hidden_dim_t_1: 25600 
+  hidden_dim_t_2: 1024
+  hidden_dim_t_3: 256
+  hidden_dim_t_4: 64
+  hidden_dim_t_5: 1
+  freeze_flag: False 
+  freeze_layers: 23
+  audio_attention_head: 2
+  audio_attention_dim: 256
+  text_attention_head: 3
+  text_attention_dim: 768
+path:
+  xlnet_model_path: "xxx"

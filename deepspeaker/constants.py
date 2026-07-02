@@ -1,0 +1,19 @@
+
+
+SAMPLE_RATE = 22050  
+WIN_LENGTH = 1024
+
+
+
+TRAIN_TEST_RATIO = 0.8
+
+CHECKPOINTS_SOFTMAX_DIR = 'checkpoints-softmax'
+
+CHECKPOINTS_TRIPLET_DIR = 'checkpoints-triplets'
+
+BATCH_SIZE = 32 * 3  
+
+
+
+NUM_FRAMES = 160  
+NUM_FBANKS = 64
